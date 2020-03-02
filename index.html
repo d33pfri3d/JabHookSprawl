@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jab, Hook, SPRAWL! || Open Jits</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <button id="start-button" onclick="startTimer()">
+            GO!
+        </button>
+
+        <button id="start-button" onclick="stopTimer()">
+            Stop
+        </button>
+
+
+    </div>
+
+    <script>
+        let startTime;
+        let updatedTime;
+        let difference;
+        let tInterval;
+        let savedTime;
+        let paused = 0;
+        let running = 0;
+        let commands = ['Jab', 'Hook', 'Sprawl'];
+
+
+        function startTimer(){
+
+            if(!running){
+                startTime = new Date().getTime();
+                tInterval = setInterval(getShowTime, 1000);
+                paused = 0;
+                running = 1;
+
+                // timerDisplay.style.background = "#FF0000";
+                // timerDisplay.style.cursor = "auto";
+                // timerDisplay.style.color = "yellow";
+                // startTimerButton.classList.add('lighter');
+                // pauseTimerButton.classList.remove('lighter');
+                // startTimerButton.style.cursor = "auto";
+                // pauseTimerButton.style.cursor = "pointer";
+            }
+        }
+
+        function getShowTime(){
+
+            let pick = commands[Math.floor(Math.random()*commands.length)]
+            console.log(`${pick}`)
+            // updatedTime = new Date().getTime();
+            // if (savedTime){
+            //     difference = (updatedTime - startTime) + savedTime;
+            // } else {
+            //     difference =  updatedTime - startTime;
+            // }
+            // // var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            // var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            // var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            // var milliseconds = Math.floor((difference % (1000 * 60)) / 100);hours = (hours < 10) ? "0" + hours : hours;
+            // minutes = (minutes < 10) ? "0" + minutes : minutes;
+            // seconds = (seconds < 10) ? "0" + seconds : seconds;
+            // milliseconds = (milliseconds < 100) ? (milliseconds < 10) ? "00" + milliseconds : "0" + milliseconds : milliseconds;
+            // timerDisplay.innerHTML = hours + ':' + minutes + ':' + seconds + ':' + milliseconds;
+        }
+
+
+        function stopTimer(){
+            clearInterval(tInterval);
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
